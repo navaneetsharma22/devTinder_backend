@@ -21,32 +21,35 @@ const app = express();
 // });
 
 app.get("/user", (req,res) =>{
+    //console.log(req.query);
+    console.log(req.query);
     res.send({
         name: "John Doe",
         lastname: "Doe",
     })
 })
 
-app.post("/user",(req,res) => {
-    console.log("User created");
-    res.send("data successsfully saved to the database ");
+// app.post("/user",(req,res) => {
+//     console.log("User created");
+//     console.log(req.body);
+//     res.send("data successsfully saved to the database ");
 
-})
+// })
 
-app.delete("/user",(req,res) =>{
-    console.log("User deleted");
-    res.send("data successsfully deleted from the database ");
-})
+// app.delete("/user",(req,res) =>{
+//     console.log("User deleted");
+//     res.send("data successsfully deleted from the database ");
+// })
 
-//Update user data 
-app.put("/user",(req,res) => {
-    console.log("User updated");
-    res.send("data successsfully updated in the database ");
-})
+// //Update user data 
+// app.put("/user",(req,res) => {
+//     console.log("User updated");
+//     res.send("data successsfully updated in the database ");
+// })
 
-app.use("/test", (req, res) => {
-    res.send("Hello World");
-});
+// app.use("/test", (req, res) => {
+//     res.send("Hello World");
+// });
 
 // app.use("/dashboard", (req, res) => {
 //     res.send("Namste from dashboard")
