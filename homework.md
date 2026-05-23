@@ -17,6 +17,7 @@ lec -- 17 (ROuting and request Handling )
 -Create a remote repo on github 
 -push all code to remote origin 
 -play with and route extension ex. /hello ,/, hello/2 ,/xyz
------Order Of route matter a lot 
+-----Order Of route matter a lot
+Write a logic to hamdle GET ,POST,PUT ,PATCH,DELETE API CALLS  AND TEST IN POSTMAN
 
 
