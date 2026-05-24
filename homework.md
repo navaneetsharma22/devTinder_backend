@@ -23,4 +23,7 @@ Write a logic to hamdle GET ,POST,PUT ,PATCH,DELETE API CALLS  AND TEST IN POSTM
 explore routing and use of ? ,+,(),* in the routes
 Use of regex in routes /a/,/*fly&/
 
+reading the query params routes 
+adding the dynamic routes 
 
+// Middlewares and Error Handling
