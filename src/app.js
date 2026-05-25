@@ -68,6 +68,9 @@ app.use ("/User" ,
     console.log("Route Handler 1");
     //res.send("Route Handler !!");
     next(); // it will call the next route handler
+    response.send("Route Handler 1");// it will not execute because we have already 
+    // sent a response in the first route handler.
+    e
 
 },
 (req,res) => {
