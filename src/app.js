@@ -61,24 +61,50 @@ const app = express();
 
 
 //18 Middleware and route Handler 
-app.use ("/User" ,
-    (req,res , next)  => {
-    // res.send("Route Handler 1");
-    //what happend we did not send any response 
+// app.use ("/User" ,
+//     (req,res , next)  => {
+//     // res.send("Route Handler 1");
+//     //what happend we did not send any response 
+//     console.log("Route Handler 1");
+//     //res.send("Route Handler !!");
+//     next(); // it will call the next route handler
+//     response.send("Route Handler 1");// it will not execute because we have already 
+//     // sent a response in the first route handler.
+//     e
+
+// },
+// (req,res) => {
+//     console.log("2nd ROute Handler"); 
+//     res.send("2nd response ");
+
+// }
+// );
+
+
+//now we add four route handler in one route
+app.use("/User" , (req,res , next ) => {
     console.log("Route Handler 1");
-    //res.send("Route Handler !!");
-    next(); // it will call the next route handler
-    response.send("Route Handler 1");// it will not execute because we have already 
-    // sent a response in the first route handler.
-    e
+    next();
+
+    //res.send("Route Handler 1");
+},
+(req,res) => {
+    console.log("Route Handler 2");
+    res.send("Route Handler 2");
+},
+
+(req,res) => {
+    console.log("Route Handler 3");
+    res.send("Route Handler 3");
 
 },
 (req,res) => {
-    console.log("2nd ROute Handler"); 
-    res.send("2nd response ");
+    console.log("Route Handler 4");
+    res.send("Route Handler 4");
 
-}
-);
+});
+
+
 
 
 
