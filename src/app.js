@@ -61,13 +61,21 @@ const app = express();
 
 
 //18 Middleware and route Handler 
-app.use ("/User" ,(req,res) => {
+app.use ("/User" ,
+    (req,res) => {
     // res.send("Route Handler 1");
     //what happend we did not send any response 
     console.log("Route Handler 1");
     res.send("Route Handler !!");
 
-})
+},
+(req,res) => {
+    console.log("2nd ROute Handler");
+    res.send("2nd response ");
+
+}
+);
+
 
 
 
