@@ -20,14 +20,14 @@ const app = express();
 //     res.send("hello the default route");
 // });
 
-app.get("/user", (req,res) =>{
-    //console.log(req.query);
-    console.log(req.query);
-    res.send({
-        name: "John Doe",
-        lastname: "Doe",
-    })
-})
+// app.get("/user", (req,res) =>{
+//     //console.log(req.query);
+//     console.log(req.query);
+//     res.send({
+//         name: "John Doe",
+//         lastname: "Doe",
+//     })
+// })
 
 // app.post("/user",(req,res) => {
 //     console.log("User created");
@@ -58,6 +58,18 @@ app.get("/user", (req,res) =>{
 // app.use("/", (req, res) => {
 // //     res.send("Overwrite the default route");
 // });//
+
+
+//18 Middleware and route Handler 
+app.use ("/User" ,(req,res) => {
+    // res.send("Route Handler 1");
+    //what happend we did not send any response 
+    console.log("Route Handler 1");
+    res.send("Route Handler !!");
+
+})
+
+
 
 
 app.listen(5000, () =>{
