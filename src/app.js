@@ -88,21 +88,30 @@ app.use("/User" , (req,res , next ) => {
 
     //res.send("Route Handler 1");
 },
-(req,res) => {
+(req,res , next) => {
     console.log("Route Handler 2");
-    res.send("Route Handler 2");
+   // res.send("Route Handler 2");
+   next();
 },
 
-(req,res) => {
+(req,res , next) => {
     console.log("Route Handler 3");
-    res.send("Route Handler 3");
+   // res.send("Route Handler 3");
+    next();
 
 },
-(req,res) => {
+(req,res , next ) => {
     console.log("Route Handler 4");
-    res.send("Route Handler 4");
+    //res.send("Route Handler 4");
+    next();
 
-});
+
+},
+(req,res ) => {
+    console.log("Route Handler 5");
+    res.send("Route Handler 5");
+}
+);
 
 
 
