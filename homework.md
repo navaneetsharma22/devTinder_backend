@@ -26,4 +26,9 @@ Use of regex in routes /a/,/*fly&/
 reading the query params routes 
 adding the dynamic routes 
 
-// Middlewares and Error Handling
+// Middlewares and Error Handling 18
+-Multipal  Route Handler - play With the code 
+-next();
+-next function and errors along with res.send()
+app.use("/routes" ,rh ,( rh2, rh3)  ,rH4 ,rh5)
+
