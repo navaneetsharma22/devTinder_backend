@@ -113,30 +113,52 @@ const app = express();
 // }
 // );
 
-// Another Method of define multiple route handler 
-app.use("/" , (req,res,next ) =>{
-    console.log("Middleware 1");
-   // res.send("Middleware 1");
-    // next() is used to call the next middleware or route handler in the stack
-    next();
-});
-app.get ("/Users" ,(req,res, next) => {
-    console.log("Route Handler 1");
-    //res.send("Route Handler 1");
-    next();
+// // Another Method of define multiple route handler 
+// app.use("/" , (req,res,next ) =>{
+//     console.log("Middleware 1");
+//    // res.send("Middleware 1");
+//     // next() is used to call the next middleware or route handler in the stack
+//     next();
+// });
+// app.get ("/Users" ,(req,res, next) => {
+//     console.log("Route Handler 1");
+//     //res.send("Route Handler 1");
+//     next();
 
-});
+// });
 
-app.get("/Users" , (req,res,next ) => {
-    console.log("Route Handler 2");
-    res.send("Route Handler 2");
-})
+// app.get("/Users" , (req,res,next ) => {
+//     console.log("Route Handler 2");
+//     res.send("Route Handler 2");
+// })
 
 // creating both individual and multiple route handler in the same route
 
 
 
+app.get("/admin/getAllData" , (req,res) => {
+    //logic of cheaking if the request is auth 
+    const token = "navaneet";
 
+    const isAuth  = token === "navaneejjt";
+    if (isAuth){
+         
+    console.log("All Dta ")
+    res.send("All Data sent ")
+    }else{
+        res.status(401).send("Unauthorized");
+        
+    }
+   
+});
+
+app.get("/admin/deleteUser" , (req,res) => {
+
+    //logic for checking AUth user 
+    console.log("USer deleted ")
+    res.send("All Data Delete ")
+
+})
 
 
 
