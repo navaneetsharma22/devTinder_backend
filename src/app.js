@@ -82,36 +82,58 @@ const app = express();
 
 
 //now we add four route handler in one route
-app.use("/User" , (req,res , next ) => {
+// app.use("/User" , (req,res , next ) => {
+//     console.log("Route Handler 1");
+//     next();
+
+//     //res.send("Route Handler 1");
+// },
+// (req,res , next) => {
+//     console.log("Route Handler 2");
+//    // res.send("Route Handler 2");
+//    next();
+// },
+
+// (req,res , next) => {
+//     console.log("Route Handler 3");
+//    // res.send("Route Handler 3");
+//     next();
+
+// },
+// (req,res , next ) => {
+//     console.log("Route Handler 4");
+//     //res.send("Route Handler 4");
+//     next();
+
+
+// },
+// (req,res ) => {
+//     console.log("Route Handler 5");
+//     res.send("Route Handler 5");
+// }
+// );
+
+// Another Method of define multiple route handler 
+app.use("/" , (req,res,next ) =>{
+    console.log("Middleware 1");
+   // res.send("Middleware 1");
+    // next() is used to call the next middleware or route handler in the stack
+    next();
+});
+app.get ("/Users" ,(req,res, next) => {
     console.log("Route Handler 1");
-    next();
-
     //res.send("Route Handler 1");
-},
-(req,res , next) => {
+    next();
+
+});
+
+app.get("/Users" , (req,res,next ) => {
     console.log("Route Handler 2");
-   // res.send("Route Handler 2");
-   next();
-},
+    res.send("Route Handler 2");
+})
 
-(req,res , next) => {
-    console.log("Route Handler 3");
-   // res.send("Route Handler 3");
-    next();
+// creating both individual and multiple route handler in the same route
 
-},
-(req,res , next ) => {
-    console.log("Route Handler 4");
-    //res.send("Route Handler 4");
-    next();
-
-
-},
-(req,res ) => {
-    console.log("Route Handler 5");
-    res.send("Route Handler 5");
-}
-);
 
 
 
