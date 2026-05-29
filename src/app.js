@@ -197,6 +197,11 @@ app.get("/user" , (req,res) =>{
     res.send("User Data sent");
 })
 
+app.get("/user/Login", (req,res) =>{
+    console.log("User Login");
+    res.send("User Login Successfull");
+})
+
 
 
 app.listen(5000, () =>{
