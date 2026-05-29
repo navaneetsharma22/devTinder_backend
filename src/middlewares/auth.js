@@ -12,7 +12,7 @@ const isAuth = (req,res, next) => {
 
 
 const userAuth =(req,res, next) => {
-    const token = "neet";
+    const token = "neet5";
     const isAuth = token === "neet";
     if (!isAuth){
         return res.status(401).send("Unauthorized Access request");

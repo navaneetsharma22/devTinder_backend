@@ -177,6 +177,9 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 //     };
 // });
 
+app.use("/admin", isAuth);
+app.use("/user", userAuth);
+
 
 app.get("/admin/getAllData" ,(req,res ,next) => {
     console.log("All Data");
