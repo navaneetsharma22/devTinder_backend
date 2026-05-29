@@ -2,6 +2,9 @@ const express = require("express");
 
 const app = express();
 
+const isAuth = require("./middlewares/auth");
+
+
 
 
 // app.use("/", (req, res) => {
@@ -163,16 +166,16 @@ const app = express();
 
 //add middleware on /admin whem adin route hit or call or 
 // sub route of admin then this middleware will execute
-app.use("/admin", (req,res,next) => {
-    console.log("Admin Middleware");
-    const token = "xyz55";
-    const isAuth = token === "xyz";
-    if (!isAuth) {
-        res.status(401).send("Unauthorized");
-    }else{
-        next();
-    };
-});
+// app.use("/admin", (req,res,next) => {
+//     console.log("Admin Middleware");
+//     const token = "xyz55";
+//     const isAuth = token === "xyz";
+//     if (!isAuth) {
+//         res.status(401).send("Unauthorized");
+//     }else{
+//         next();
+//     };
+// });
 
 
 app.get("/admin/getAllData" ,(req,res ,next) => {
