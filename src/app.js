@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-const isAuth = require("./middlewares/auth");
+const {isAuth , userAuth } = require("./middlewares/auth");
 
 
 
@@ -188,6 +188,11 @@ app.get("/admin/deleteUser", (req,res) => {
     console.log("User Deleted");
     res.send("User Deleted");
 });
+
+app.get("/user" , (req,res) =>{
+    console.log("User Data");
+    res.send("User Data sent");
+})
 
 
 
