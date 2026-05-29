@@ -205,21 +205,32 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 // })
 
 
-//Error Handling Middleware
-app.get("/getUserData" , (req,res) => {
-    throw new Error("Something went wrong");
+app.use("/user", userAuth)
 
-    res.send("User Data sent");
+//Error Handling Middleware
+app.get("/user/getUserData" , (req,res) => {
+    try{
+          throw new Error("Something went wrong");
+          res.send("User Data sent");
+
+
+    }
+    catch(err){
+        res.status(500).send("Something went wrong");
+    }
+   
+
+  
 
 })
 
-app.use( "/"  ,(err,req,res, next) => {
-    if(err) {
-         res.status(500).send("Something went wrong");
-    }
+// app.use( "/"  ,(err,req,res, next) => {
+//     if(err) {
+//          res.status(500).send("Something went wrong");
+//     }
 
    
-}) ;
+// }) ;
 
 
 
