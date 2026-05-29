@@ -136,30 +136,55 @@ const app = express();
 
 
 
-app.get("/admin/getAllData" , (req,res) => {
-    //logic of cheaking if the request is auth 
-    const token = "navaneet";
+// app.get("/admin/getAllData" , (req,res) => {
+//     //logic of cheaking if the request is auth 
+//     const token = "navaneet";
 
-    const isAuth  = token === "navaneejjt";
-    if (isAuth){
+//     const isAuth  = token === "navaneejjt";
+//     if (isAuth){
          
-    console.log("All Dta ")
-    res.send("All Data sent ")
-    }else{
-        res.status(401).send("Unauthorized");
+//     console.log("All Dta ")
+//     res.send("All Data sent ")
+//     }else{
+//         res.status(401).send("Unauthorized");
         
-    }
+//     }
    
+// });
+
+// app.get("/admin/deleteUser" , (req,res) => {
+
+//     //logic for checking AUth user 
+//     console.log("USer deleted ")
+//     res.send("All Data Delete ")
+
+// })
+
+
+//add middleware on /admin whem adin route hit or call or 
+// sub route of admin then this middleware will execute
+app.use("/admin", (req,res,next) => {
+    console.log("Admin Middleware");
+    const token = "xyz55";
+    const isAuth = token === "xyz";
+    if (!isAuth) {
+        res.status(401).send("Unauthorized");
+    }else{
+        next();
+    };
 });
 
-app.get("/admin/deleteUser" , (req,res) => {
 
-    //logic for checking AUth user 
-    console.log("USer deleted ")
-    res.send("All Data Delete ")
-
+app.get("/admin/getAllData" ,(req,res ,next) => {
+    console.log("All Data");
+    res.send("All Data sent");
+    next();
 })
 
+app.get("/admin/deleteUser", (req,res) => {
+    console.log("User Deleted");
+    res.send("User Deleted");
+});
 
 
 
