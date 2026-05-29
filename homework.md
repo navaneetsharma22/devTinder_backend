@@ -34,3 +34,4 @@ app.use("/routes" ,rh ,( rh2, rh3)  ,rH4 ,rh5)
 what is middleware 
 how express js basically handles requests behind the scenes 
 
+-diffrence B/w app.use and app.all 
