@@ -177,30 +177,52 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 //     };
 // });
 
-app.use("/admin", isAuth);
-app.use("/user", userAuth);
+// app.use("/admin", isAuth);
+// app.use("/user", userAuth);
 
 
-app.get("/admin/getAllData" ,(req,res ,next) => {
-    console.log("All Data");
-    res.send("All Data sent");
-    next();
-})
+// app.get("/admin/getAllData" ,(req,res ,next) => {
+//     console.log("All Data");
+//     res.send("All Data sent");
+//     next();
+// })
 
-app.get("/admin/deleteUser", (req,res) => {
-    console.log("User Deleted");
-    res.send("User Deleted");
-});
+// app.get("/admin/deleteUser", (req,res) => {
+//     console.log("User Deleted");
+//     res.send("User Deleted");
+// });
 
-app.get("/user" , (req,res) =>{
-    console.log("User Data");
+// app.get("/user" , (req,res) =>{
+//     console.log("User Data");
+//     res.send("User Data sent");
+// })
+
+
+
+// app.get("/user/Login", (req,res) =>{
+//     console.log("User Login");
+//     res.send("User Login Successfull");
+// })
+
+
+//Error Handling Middleware
+app.get("/getUserData" , (req,res) => {
+    throw new Error("Something went wrong");
+
     res.send("User Data sent");
+
 })
 
-app.get("/user/Login", (req,res) =>{
-    console.log("User Login");
-    res.send("User Login Successfull");
-})
+app.use( "/"  ,(err,req,res, next) => {
+    if(err) {
+         res.status(500).send("Something went wrong");
+    }
+
+   
+}) ;
+
+
+
 
 
 
