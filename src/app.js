@@ -1,4 +1,5 @@
 const express = require("express");
+require("./config/database");
 
 const app = express();
 
@@ -205,24 +206,24 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 // })
 
 
-app.use("/user", userAuth)
+// app.use("/user", userAuth)
 
-//Error Handling Middleware
-app.get("/user/getUserData" , (req,res) => {
-    try{
-          throw new Error("Something went wrong");
-          res.send("User Data sent");
+// //Error Handling Middleware
+// app.get("/user/getUserData" , (req,res) => {
+//     try{
+//           throw new Error("Something went wrong");
+//           res.send("User Data sent");
 
 
-    }
-    catch(err){
-        res.status(500).send("Something wentttt wrong");
-    }
+//     }
+//     catch(err){
+//         res.status(500).send("Something wentttt wrong");
+//     }
    
 
   
 
-})
+// })
 
 // app.use( "/"  ,(err,req,res, next) => {
 //     if(err) {
