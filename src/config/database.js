@@ -6,17 +6,12 @@ const connectDB = async () => {
     );
 
 
-};
+}; 
 
-connectDB()
-    .then(() =>{
-         console.log("MongoDB Connected...")
-    }
-   
-     )
+module.exports = connectDB;
+ 
 
-     .catch((err) => {
-        console.error("Error connecting to MongoDB:", err);
-     })
+
+
 
 

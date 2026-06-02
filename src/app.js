@@ -1,5 +1,5 @@
 const express = require("express");
-require("./config/database");
+ const connectDB = require("./config/database");
 
 const app = express();
 
@@ -234,10 +234,18 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 // }) ;
 
 
+connectDB()
+    .then(() => {
+        console.log("Database Connected");
+        app.listen(4000 , () => {
+            console.log("Server is running on port 4000");
+        });
+    })
+    .catch((err) => {
+        console.error("Database Connection Failed");
+    });
+    
 
 
 
 
-app.listen(5000, () =>{
-    console.log("Server is running on port 5000");
-});
