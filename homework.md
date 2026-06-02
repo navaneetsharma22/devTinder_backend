@@ -42,4 +42,6 @@ create a free on MongoDB official website (mongo Atlas )
 Install Mongoose Library 
 connect your application to Database 
 
+call connect DB function and connect to database before starting application on 7777
+
 

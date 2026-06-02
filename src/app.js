@@ -234,6 +234,10 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 // }) ;
 
 
+//api to inster in data base using post method
+ 
+
+
 connectDB()
     .then(() => {
         console.log("Database Connected");
