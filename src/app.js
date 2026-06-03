@@ -1,5 +1,6 @@
 const express = require("express");
  const connectDB = require("./config/database");
+ const User = require("./models/userSchema");
 
 const app = express();
 
@@ -234,7 +235,23 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 // }) ;
 
 
-//api to inster in data base using post method
+//api to insert in data base using post method
+app.post("/singup" ,  async (req,res) => {
+    //now insert data in database also creating a new instance of User Model 
+    const user=  new User ({
+        
+        firstName : "Navaneet",
+        lastName : "Sharma",
+        emailid : "navaneet@gmail.com",
+        password : "123456789",
+    
+    
+    });
+
+    await user.save();
+    res.send("User created successfully");
+    
+})
  
 
 
