@@ -1,6 +1,6 @@
 const mongoose  = rquire('mongoose');
 
-const UserSchema =  mongoose.Schema({
+const userSchema = new mongoose.Schema({
     firstName : {
         type : String,
     },
@@ -22,6 +22,9 @@ const UserSchema =  mongoose.Schema({
 
 });
 
-const userModel = mongoose.model('User', UserSchema);
+// const User = mongoose.model('User', userSchema);
 
-module.exports = userModel;
+// module.exports = User;
+
+// also you right both model and expoet function in one line
+module.exports = mongoose.model('User', userSchema);

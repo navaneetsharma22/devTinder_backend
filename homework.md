@@ -44,4 +44,6 @@ connect your application to Database
 
 call connect DB function and connect to database before starting application on 7777
 
+cresate user schema & user Model
+
 
