@@ -240,10 +240,10 @@ app.post("/singup" ,  async (req,res) => {
     //now insert data in database also creating a new instance of User Model 
     const user=  new User ({
         
-        firstName : "Navaneet",
-        lastName : "Sharma",
-        emailid : "navaneet@gmail.com",
-        password : "123456789",
+        firstName : "Devansh",
+        lastName : "jaiswal",
+        emailid : "devansh@gmail.com",
+        password : "devens",
     
     
     });
