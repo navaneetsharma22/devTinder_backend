@@ -234,19 +234,22 @@ const {isAuth , userAuth } = require("./middlewares/auth");
    
 // }) ;
 
+app.use(express.json()); // it will parse the incoming request body in json format and make it available in req.body
 
 //api to insert in data base using post method
 app.post("/singup" ,  async (req,res) => {
+
+    console.log(req.body);
     //now insert data in database also creating a new instance of User Model 
-    const user=  new User ({
+    // const user=  new User ({
         
-        firstName : "shivam",
-        lastName : "jaiswal",
-        emailid : "shivam@gmail.com",
-        password : "shivam123",
+    //     firstName : "shivam",
+    //     lastName : "jaiswal",
+    //     emailid : "shivam@gmail.com",
+    //     password : "shivam123",
     
     
-    });
+    // });
 
     await user.save();
     res.send("User created successfully");
