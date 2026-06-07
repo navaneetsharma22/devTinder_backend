@@ -309,8 +309,24 @@ app.get("/feed" , async(req,res) => {
 
 })
 
+//Delete API findbyidanddelet
  
 
+app.delete("/user", async (req,res) => {
+    const userId = req.body.userId;
+    try{
+        const user = await  User.findByIdAndDelete(userId);
+        if(!user) {
+            res.status(404).send("User not found");
+        }else{
+            res.send("User deleted successfully");
+        }
+
+    }catch(err){
+        res.status(400).send("Something went wrong ");
+
+    }
+})
 
 connectDB()
     .then(() => {
