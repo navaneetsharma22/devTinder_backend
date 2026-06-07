@@ -239,20 +239,17 @@ app.use(express.json()); // it will parse the incoming request body in json form
 //api to insert in data base using post method
 app.post("/singup" ,  async (req,res) => {
 
-    console.log(req.body);
-    //now insert data in database also creating a new instance of User Model 
-    // const user=  new User ({
-        
-    //     firstName : "shivam",
-    //     lastName : "jaiswal",
-    //     emailid : "shivam@gmail.com",
-    //     password : "shivam123",
-    
-    
-    // });
+    //console.log(req.body);
+   // now insert data in database also creating a new instance of User Model 
+    const user=  new User(req.body);
 
-    await user.save();
+
+    try{
+        await user.save();
     res.send("User created successfully");
+    }catch(err){
+        res.status(400).send("Error saving the User" + err.message);
+    }
     
 })
  
