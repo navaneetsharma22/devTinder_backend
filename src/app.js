@@ -276,16 +276,19 @@ app.post("/singup" ,  async (req,res) => {
 app.get("/user", async (req, res) => {
     const userEmail = req.body.emailid;
     try{
-        const users = await User.findOne({ emailid: userEmail });
-        if(users.lenght === 1) {
+        const users = await User.find({ emailid: userEmail });
+        if(users.length === 0) {
              res.status(404).send("User not found");
-        }else{
-        res.send(user);
         }
+        else{
+             res.send(users);
+        }
+        
       
+        
     }
     catch(err){
-        res.status(400).send("Something went wrong" + err.message);
+        res.status(400).send("Something went wrong");
     }
     
 
