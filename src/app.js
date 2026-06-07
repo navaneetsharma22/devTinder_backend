@@ -294,6 +294,21 @@ app.get("/user", async (req, res) => {
 
 });
 
+
+//find all User 
+
+app.get("/feed" , async(req,res) => {
+    try{
+        const users = await User.find({});
+        res.send(users);
+    
+    }
+        catch(err){ 
+            res.status(400).send("Something went wrong");
+        }
+
+})
+
  
 
 
