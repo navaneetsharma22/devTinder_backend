@@ -247,6 +247,7 @@ app.post("/singup" ,  async (req,res) => {
     try{
         await user.save();
     res.send("User created successfully");
+    console.log(req.body);
     }catch(err){
         res.status(400).send("Error saving the User" + err.message);
     }
