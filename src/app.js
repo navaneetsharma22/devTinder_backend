@@ -236,6 +236,25 @@ const {isAuth , userAuth } = require("./middlewares/auth");
 
 app.use(express.json()); // it will parse the incoming request body in json format and make it available in req.body
 
+app.get("/user" , async (req,res) => {
+    const userEmail = req.body.emailid;
+
+    try{
+        const user = await user.find({
+            emailid : userEmail
+          
+
+        })
+
+        res.send(user);
+
+    }catch(err){
+        res.status(400).send("Somthing Went Wrong");
+    }
+
+    
+})
+
 //api to insert in data base using post method
 app.post("/singup" ,  async (req,res) => {
 
@@ -247,7 +266,7 @@ app.post("/singup" ,  async (req,res) => {
     try{
         await user.save();
     res.send("User created successfully");
-    console.log(req.body);
+   
     }catch(err){
         res.status(400).send("Error saving the User" + err.message);
     }
