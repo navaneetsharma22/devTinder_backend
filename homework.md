@@ -47,3 +47,10 @@ call connect DB function and connect to database before starting application on 
 cresate user schema & user Model
 
 
+20. DIVING INTO THE APIs
+
+jS Object Vs JSON(Diffrence );
+Add the Express.json Middleware to recive data from the end user 
+Make your signup API dynamic to recive data from the end user 
+
+
