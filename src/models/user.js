@@ -1,4 +1,5 @@
 const mongoose  = require('mongoose');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
     firstName : {
@@ -22,8 +23,24 @@ const userSchema = new mongoose.Schema({
         unique : true,
         lowercase : true,
         trim : true, 
+        validate(value) {
+            if(!validator.isEmail(value)) {
+                throw new Error("Invalid email address" + value);
+            }
+
+        }
 
     },
+    password : {
+        type : String,
+        required : true,
+        minlength : 8,
+        validate(value) {
+            if(!value.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+                throw new Error("Password must be at least 8 characters long and contain at least one letter and one number");
+            }
+    }
+ },
 
     age : {
         type: Number,
@@ -42,7 +59,12 @@ const userSchema = new mongoose.Schema({
     },
     photoUrl : {
         type : String,
-        default : "https://cdn.vectorstock.com/i/500p/46/76/gray-male-head-placeholder-vector-23804676.jpg"
+        default : "https://cdn.vectorstock.com/i/500p/46/76/gray-male-head-placeholder-vector-23804676.jpg",
+        validate(value) {
+            if(!validator.isURL(value)) {
+                throw new Error("Invalid photo URL");
+            }
+        }
 
     },
     about : {
@@ -51,6 +73,11 @@ const userSchema = new mongoose.Schema({
     },
     skills : {
         type : [String],
+        validate(value) {
+            if(value.length > 10) {
+                throw new Error("Skills should be less than 10");
+            }
+        }
 
     }
 

@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "mongoose": "^9.6.3",
-    "mongose": "^0.0.2-security"
+    "mongose": "^0.0.2-security",
+    "validator": "^13.15.35"
   }
 }
