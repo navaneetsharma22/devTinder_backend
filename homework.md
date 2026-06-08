@@ -62,3 +62,10 @@ Explore the mongoose Documentation for model methods
 what are options in a Model.findOneAndUpdate
 
 
+21 Data  Sanitization and Schema validation
+explore schematype options from the document '
+add require ,unique lowercase , min minLenght , trim 
+add default 
+Create a custom validate function for gender 
+improve the DB Schema - put all apropiate validation on each field in schema 
+Add Timestamp in the userSchema  
