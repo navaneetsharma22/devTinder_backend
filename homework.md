@@ -73,3 +73,6 @@ Add API level  validation On Patch request & Signup  post api
 DATA Sanutaiztion Add APi validation for Each fields 
 
 22 Encrypting Password 
+validatedata in signup Api 
+Install bcrypt I package 
+Create PassWoerdHash Using Bcrypt.hash And Save the User Is excrupted password 

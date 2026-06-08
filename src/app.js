@@ -247,7 +247,7 @@ app.post("/singup" ,  async (req,res) => {
         //validate the data 
     validateSingUpData(req);
 
-    const {password} = req.body;
+    const { firstName, lastName, emailid, password } = req.body;
     //Encrypt the password
     const passwordHash = await bcrypt.hash(password, 10);
     console.log(passwordHash);
