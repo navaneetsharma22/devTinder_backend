@@ -1,6 +1,7 @@
 const express = require("express");
  const connectDB = require("./config/database");
  const User = require("./models/user");
+ const {validateSingUpData} = require("./utils/validation")
 
 const app = express();
 
@@ -240,6 +241,11 @@ app.use(express.json()); // it will parse the incoming request body in json form
 
 //api to insert in data base using post method
 app.post("/singup" ,  async (req,res) => {
+
+    //validate the data 
+    validateSingUpData(req);
+
+    //Encrypt the password
 
     //console.log(req.body);
    // now insert data in database also creating a new instance of User Model 
