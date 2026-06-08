@@ -36,11 +36,12 @@ const userSchema = new mongoose.Schema({
         required : true,
         minlength : 8,
         validate(value) {
-            if(!value.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
-                throw new Error("Password must be at least 8 characters long and contain at least one letter and one number");
-            }
+    if(!/^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(value)) {
+        throw new Error(
+          "Password must be at least 8 characters long and contain at least one letter and one number"
+        );
     }
- },
+ }},
 
     age : {
         type: Number,

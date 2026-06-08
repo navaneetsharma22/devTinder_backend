@@ -2,6 +2,7 @@ const express = require("express");
  const connectDB = require("./config/database");
  const User = require("./models/user");
  const {validateSingUpData} = require("./utils/validation")
+ const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -254,8 +255,13 @@ app.post("/singup" ,  async (req,res) => {
     //console.log(req.body);
 
    // now insert data in database also creating a new instance of User Model 
-    const user=  new User(req.body);
-        await user.save();
+    const user=  new User({
+        firstName,
+        lastName,
+        emailid,
+        password : passwordHash,
+    });
+    await user.save();
     res.send("User created successfully");
    
     }catch(err){
