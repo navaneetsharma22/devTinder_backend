@@ -14,6 +14,7 @@
   "author": "Navaneet SHarma",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.2.1",
     "mongoose": "^9.6.3",
     "mongose": "^0.0.2-security",

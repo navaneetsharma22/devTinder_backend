@@ -246,9 +246,13 @@ app.post("/singup" ,  async (req,res) => {
         //validate the data 
     validateSingUpData(req);
 
+    const {password} = req.body;
     //Encrypt the password
+    const passwordHash = await bcrypt.hash(password, 10);
+    console.log(passwordHash);
 
     //console.log(req.body);
+
    // now insert data in database also creating a new instance of User Model 
     const user=  new User(req.body);
         await user.save();
