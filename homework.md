@@ -69,3 +69,5 @@ add default
 Create a custom validate function for gender 
 improve the DB Schema - put all apropiate validation on each field in schema 
 Add Timestamp in the userSchema  
+Add API level  validation On Patch request & Signup  post api
+DATA Sanutaiztion Add APi validation for Each fields 
