@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     emailid :{
         type : String,
         required : true,
+        unique : true,
 
     },
 
@@ -22,6 +23,18 @@ const userSchema = new mongoose.Schema({
 
     gender: {
         type: String,
+    },
+    photoUrl : {
+        type : String,
+
+    },
+    about : {
+        type : String,
+        default : "This is my about description.",
+    },
+    skills : {
+        type : [String],
+
     }
 
 });
