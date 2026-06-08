@@ -52,7 +52,13 @@ cresate user schema & user Model
 jS Object Vs JSON(Diffrence );
 Add the Express.json Middleware to recive data from the end user 
 Make your signup API dynamic to recive data from the end user 
-User.findOne with duplicate email ids. which object returned
+User.findOne with duplicate email ids. which object return
 API  i - GET /feed - get all the users from the database 
+-API GET user by ID 
+-create a delete user APi 
+diffrence beetwen patch and Put 
+API - Update a user 
+Explore the mongoose Documentation for model methods 
+what are options in a Model.findOneAndUpdate
 
 
