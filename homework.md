@@ -56,7 +56,7 @@ User.findOne with duplicate email ids. which object return
 API  i - GET /feed - get all the users from the database 
 -API GET user by ID 
 -create a delete user APi 
-diffrence beetwen patch and Put 
+dif  frence beetwen patch and Put 
 API - Update a user 
 Explore the mongoose Documentation for model methods 
 what are options in a Model.findOneAndUpdate
@@ -76,3 +76,4 @@ DATA Sanutaiztion Add APi validation for Each fields
 validatedata in signup Api 
 Install bcrypt I package 
 Create PassWoerdHash Using Bcrypt.hash And Save the User Is excrupted password 
+create login api and validate the data own
