@@ -270,6 +270,36 @@ app.post("/singup" ,  async (req,res) => {
     
 })
 
+app.post("/Login" , async (req,res) => {
+    try{
+        const {emailid , password} = req.body;
+        //validation if email is valide or not 
+        if(!validator.isEmail(emailid)){
+            throw new Error("Invalid email address");
+        }
+
+        //find emailid in database
+        const user = await User.findOne({ emailid : emailid });
+        if(!user){
+            throw new Error("User not found in DB ");
+        }
+
+        // now using bcrypt to compare the password
+        const isPasswordValid = await bcrypt.campare(password, user.password);
+        if(isPasswordValid) {
+            res.send("Login successful");
+        } else {
+            throw new Error("Invalid password");
+        }
+
+    }catch(err) {
+        res.status(400).send("Error" + err.message);
+
+    }
+
+});
+
+
 // app.get("/user", async (req, res) => {
 //     const userEmail = req.query.emailid;
 
