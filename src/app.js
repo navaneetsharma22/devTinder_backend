@@ -3,6 +3,7 @@ const express = require("express");
  const User = require("./models/user");
  const {validateSingUpData} = require("./utils/validation")
  const bcrypt = require("bcrypt");
+ const validator = require("validator");
 
 const app = express();
 
@@ -285,7 +286,7 @@ app.post("/Login" , async (req,res) => {
         }
 
         // now using bcrypt to compare the password
-        const isPasswordValid = await bcrypt.campare(password, user.password);
+        const isPasswordValid = await bcrypt.compare(password, user.password);
         if(isPasswordValid) {
             res.send("Login successful");
         } else {
