@@ -288,6 +288,12 @@ app.post("/Login" , async (req,res) => {
         // now using bcrypt to compare the password
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if(isPasswordValid) {
+            //Create jwt token and send to client
+
+            //Addthe token to cookies and send the response back the user 
+            res.cookie("token" , "hfjyanmsjfiksnejflfn");
+
+
             res.send("Login successful");
         } else {
             throw new Error("Invalid password");
@@ -316,6 +322,19 @@ app.post("/Login" , async (req,res) => {
 //         res.status(400).send(err.message);
 //     }
 // });
+
+
+ app.get("/profile" , (req,res) => {
+    // for cookies from server uses res.cookie()
+
+    const cookies = req.cookies;
+    console.log(cookies);
+    res.send("User Profile");
+    
+    
+
+
+ })
 
 
 app.get("/user", async (req, res) => {
