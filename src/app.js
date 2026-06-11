@@ -5,7 +5,10 @@ const express = require("express");
  const bcrypt = require("bcrypt");
  const validator = require("validator");
 
+ const cookieParser = require("cookie-parser");
+
 const app = express();
+app.use(cookieParser());
 
 const {isAuth , userAuth } = require("./middlewares/auth");
 
