@@ -6,6 +6,7 @@ const express = require("express");
  const validator = require("validator");
 
  const cookieParser = require("cookie-parser");
+ const jwt = require("jsonwebtoken");
 
 const app = express();
 app.use(cookieParser());
@@ -292,9 +293,10 @@ app.post("/Login" , async (req,res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if(isPasswordValid) {
             //Create jwt token and send to client
+            const token = jwt.sign({ _id: user._id}, "Nav@Tinder9353");
 
             //Addthe token to cookies and send the response back the user 
-            res.cookie("token" , "hfjyanmsjfiksnejflfn");
+            res.cookie("token" , token);
 
 
             res.send("Login successful");
