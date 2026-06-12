@@ -338,8 +338,13 @@ app.post("/Login" , async (req,res) => {
     const {token} = cookies;
 
     const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
-    console.log(decodedMsg);
-    console.log(cookies);
+    
+    const {_id} = decodedMsg;
+    console.log("Loging In  User is:" + _id);
+
+
+
+    //console.log(cookies);
     res.send("User Profile");
 
     // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
