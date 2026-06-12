@@ -4,6 +4,7 @@ const express = require("express");
  const {validateSingUpData} = require("./utils/validation")
  const bcrypt = require("bcrypt");
  const validator = require("validator");
+ //const { userAuth } = require("./middlewares/auth");
 
  const cookieParser = require("cookie-parser");
  const jwt = require("jsonwebtoken");
@@ -329,26 +330,28 @@ app.post("/Login" , async (req,res) => {
 // });
 
 
- app.get("/profile" , async (req,res) => {
+ app.get("/profile" , userAuth, async (req,res) => {
 
    try{
-     // for cookies from server uses res.cookie()
 
-    const cookies = req.cookies;
+    const user = req.User;
+    //  // for cookies from server uses res.cookie()
 
-    const {token} = cookies;
-    if(!token) {
-        throw new Error("Invalid token ");
-    }
+    // const cookies = req.cookies;
 
-    const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
+    // const {token} = cookies;
+    // if(!token) {
+    //     throw new Error("Invalid token ");
+    // }
+
+    // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
     
-    const {_id} = decodedMsg;
-    console.log("Loging In  User is:" + _id);
+    // const {_id} = decodedMsg;
+    // console.log("Loging In  User is:" + _id);
 
 
-    const user = await User.findById(_id);
-    //console.log(cookies);
+    // const user = await User.findById(_id);
+    // //console.log(cookies);
     res.send(user);
 
     // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
@@ -365,7 +368,7 @@ app.post("/Login" , async (req,res) => {
  })
 
 
-app.get("/user", async (req, res) => {
+app.get("/user", userAuth, async (req, res) => {
     const userEmail = req.body.emailid;
     try{
         const users = await User.find({ emailid: userEmail });
