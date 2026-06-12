@@ -85,4 +85,6 @@ install cookie-parrse
 just send a dummy cookie to user 
 create GET /profile API and Check  if You get the cookie back 
 Install jsonwebtoken
-In ligin API , after create a JWT token 
+In login API , after email and password verification create a JWT token 
+read the cookies inside your profile Api and FInd the logged your api 
+
