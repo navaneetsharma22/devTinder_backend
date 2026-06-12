@@ -329,13 +329,22 @@ app.post("/Login" , async (req,res) => {
 // });
 
 
- app.get("/profile" , (req,res) => {
+ app.get("/profile" , async (req,res) => {
+
     // for cookies from server uses res.cookie()
 
     const cookies = req.cookies;
+
+    const {token} = cookies;
+
+    const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
+    console.log(decodedMsg);
     console.log(cookies);
     res.send("User Profile");
-    
+
+    // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
+    // console.log(decodedMsg);
+     
     
 
 
