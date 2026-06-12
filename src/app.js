@@ -343,9 +343,9 @@ app.post("/Login" , async (req,res) => {
     console.log("Loging In  User is:" + _id);
 
 
-
+    const user = await User.findById(_id);
     //console.log(cookies);
-    res.send("User Profile");
+    res.send(user);
 
     // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
     // console.log(decodedMsg);
