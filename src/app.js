@@ -331,11 +331,15 @@ app.post("/Login" , async (req,res) => {
 
  app.get("/profile" , async (req,res) => {
 
-    // for cookies from server uses res.cookie()
+   try{
+     // for cookies from server uses res.cookie()
 
     const cookies = req.cookies;
 
     const {token} = cookies;
+    if(!token) {
+        throw new Error("Invalid token ");
+    }
 
     const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
     
@@ -349,6 +353,11 @@ app.post("/Login" , async (req,res) => {
 
     // const decodedMsg = await jwt.verify(token , "Nav@Tinder9353");
     // console.log(decodedMsg);
+
+   }catch{
+    res.status(401).send("Error" + err.message)
+
+   }
      
     
 
