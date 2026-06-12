@@ -77,3 +77,12 @@ validatedata in signup Api
 Install bcrypt I package 
 Create PassWoerdHash Using Bcrypt.hash And Save the User Is excrupted password 
 create login api and validate the data own
+
+
+23 Authentication , JWT 
+
+install cookie-parrse
+just send a dummy cookie to user 
+create GET /profile API and Check  if You get the cookie back 
+Install jsonwebtoken
+In ligin API , after create a JWT token 
