@@ -86,9 +86,30 @@ const userSchema = new mongoose.Schema({
     timestamps : true, // it will add createdAt and updatedAt fields in the document
 });
 
+//attach jwt token to user model
+userSchema.methods.getJWT = async function() {
+    const user = this;
+    const token = jwt.sign({ _id: user._id}, "Nav@Tinder9353" ,
+        {expiresIn : "1d",}
+    );
+    return token;
+};
+
+//campare password add in user Schema 
+userSchema.methods.validatePassword = async function (passwordInputByUser ) {
+    const user = this ;
+    const passwordHash = user.password;
+
+
+    const ispasswordValid = await  bcrypt.compare(passwordInputByUser, passwordHash);
+    return ispasswordValid;
+     
+}
+
 // const User = mongoose.model('User', userSchema);
 
 // module.exports = User;
 
 // also you right both model and expoet function in one line
 module.exports = mongoose.model('User', userSchema);
+    
