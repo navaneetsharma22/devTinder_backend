@@ -90,3 +90,5 @@ read the cookies inside your profile Api and FInd the logged your api
 
 write thi use auth middleware 
 add the userAuth middle ware in Profile API and a new sendConnection 
+
+set the expiry of Jwt and cookies 
