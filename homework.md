@@ -88,3 +88,5 @@ Install jsonwebtoken
 In login API , after email and password verification create a JWT token 
 read the cookies inside your profile Api and FInd the logged your api 
 
+write thi use auth middleware 
+add the userAuth middle ware in Profile API and a new sendConnection 
