@@ -294,7 +294,9 @@ app.post("/Login" , async (req,res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if(isPasswordValid) {
             //Create jwt token and send to client
-            const token = jwt.sign({ _id: user._id}, "Nav@Tinder9353");
+            const token = jwt.sign({ _id: user._id}, "Nav@Tinder9353" ,
+                {expiresIn : "1d",}
+            );
 
             //Addthe token to cookies and send the response back the user 
             res.cookie("token" , token);
@@ -366,6 +368,14 @@ app.post("/Login" , async (req,res) => {
 
 
  })
+
+app.post("/sendconnection", userAuth,async (req, res) => {
+
+    //find who is sending the connection request
+    const user = req.User;
+    console.log("Connection Request Sent");
+    res.send( user.firstName + "Sendin the Connection Request ");
+}); 
 
 
 app.get("/user", userAuth, async (req, res) => {
