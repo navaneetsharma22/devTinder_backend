@@ -299,7 +299,11 @@ app.post("/Login" , async (req,res) => {
             );
 
             //Addthe token to cookies and send the response back the user 
-            res.cookie("token" , token);
+            res.cookie("token" , token,{
+                expires : new Date(Date.now() + 8 * 3600000), // 8 hours
+                httpOnly : true, // it will prevent the client from accessing the cookie
+                //secure : false, // it will prevent the cookie from being sent over http
+            });
 
 
             res.send("Login successful");
