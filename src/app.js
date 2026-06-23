@@ -276,7 +276,7 @@ app.post("/singup" ,  async (req,res) => {
     
 })
 
-app.post("/Login" , async (req,res) => {
+app.post("/Login" , async (req,res) => { 
     try{
         const {emailid , password} = req.body;
         //validation if email is valide or not 

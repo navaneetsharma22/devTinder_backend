@@ -92,3 +92,11 @@ write thi use auth middleware
 add the userAuth middle ware in Profile API and a new sendConnection 
 
 set the expiry of Jwt and cookies 
+
+#DevTinder APIs 
+-POST /singup
+-POST /login
+-POST /logout
+
+-GET /profile/view
+-
