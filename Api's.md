@@ -23,6 +23,8 @@ POST/request/review/rejected/:requestId
 GET /connections
 GET /requests/received
 
+//GET /locattion/user
+
 
 
 //get Profile of other user profile
