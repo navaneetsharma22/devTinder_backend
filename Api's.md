@@ -22,6 +22,7 @@ POST/request/review/rejected/:requestId
 //formatches 
 GET /connections
 GET /requests/received
+GET /feed - Gets you the Profiles of Other users on platform   
 
 //GET /locattion/user
 
