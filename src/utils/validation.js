@@ -12,7 +12,20 @@ const validateSingUpData = (req) => {
     }
 }
 
+const validateEditProfileData = (req) => {
+    const allowesEditFields = ["firstName", "lastName", "photoUrl" ,"age" , "gender" , "skills" , "about" ];
+
+    const isEditAllowed = Object.keys(req.body).every((field) =>
+        allowesEditFields.includes(field)
+);
+
+return isEditAllowed ; 
+}
+
+
+
 module.exports = {
     validateSingUpData,
+    validateEditProfileData
 
 }
