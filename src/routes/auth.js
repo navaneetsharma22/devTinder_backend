@@ -2,6 +2,8 @@ const express = require("express");
 const authRouter = express.Router();
 const {validateSingUpData} = require("../utils/validation")
 const bcrypt = require("bcrypt");
+const validator = require("validator");
+//const bcrypt = require("bcrypt");
 const User = require("../models/user");
 //const auth = require("../middlewares/auth");
 

@@ -96,3 +96,6 @@ set the expiry of Jwt and cookies
  Explore tinder APIs 
  create a list alll APi you can think of in DEv TInder 
  Group multiple routes  under respective routers 
+Read documentation  for express.Router 
+create router folder for managing auth , profilee , request  routing 
+import these roters in app.js 

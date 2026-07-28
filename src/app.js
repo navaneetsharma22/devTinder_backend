@@ -12,6 +12,12 @@ const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const connectionRouter = require("./routes/requestConnection");
 const user = require("./models/user");
+app.use(express.json());
+
+
+app.use("/" , authRouter);
+app.use("/" , profileRouter);
+app.use("/" , connectionRouter);
 
 
 
