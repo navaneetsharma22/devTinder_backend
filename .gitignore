@@ -37,11 +37,9 @@ build/
 .next/
 
 # Environment files
-.env
 .env.*.local
 
 # IDE/editor folders
-.vscode/
 .idea/
 
 # macOS
@@ -63,18 +61,15 @@ Thumbs.db
 # Yarn Integrity file
 .yarn-integrity
 node_modules/
-.env
-.env.local
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 dist/
 build/
 .DS_Store
-.vscode/
 coverage/
 .idea/
-.env.test
 logs/
 *.log
 debug.log
+config.bat

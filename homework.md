@@ -99,3 +99,5 @@ set the expiry of Jwt and cookies
 Read documentation  for express.Router 
 create router folder for managing auth , profilee , request  routing 
 import these roters in app.js 
+
+and add all the api and work fine 
