@@ -35,3 +35,5 @@ GET /user/feed - Gets you the Profiles of Other users on platform
 //get Profile of other user profile
 
 GET /feed -Gets you the profiles of other users on platform 
+
+get -feel count 

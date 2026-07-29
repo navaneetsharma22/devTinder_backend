@@ -83,6 +83,7 @@ const userSchema = new mongoose.Schema({
         }
 
     }
+    
 
 }, {
     timestamps : true, // it will add createdAt and updatedAt fields in the document
